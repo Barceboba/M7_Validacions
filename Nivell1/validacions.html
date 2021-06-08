@@ -1,132 +1,153 @@
 <!doctype html>
-<html lang="es ">
-  <head>
+<html lang="es">
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-
     <title>Validacions. Nivell 1</title>
-  </head>
-  <body>
-    <form class="form-horizontal">
-        <fieldset>
-        
-        <!-- Form Name -->
-        <legend>Registre</legend>
-        
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-labelbg-danger" for="Nom:">Nom</label>  
-          <div class="col-md-5">
-          <input id="Nom:" name="Nom:" type="text" placeholder="Nom" class="form-control input-md" required="">
-          <span class="help-block">Facitar nom</span>  
-          </div>
-        </div>
-        
-        <!-- Text input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="Correu electronic">Correu</label>  
-          <div class="col-md-4">
-          <input id="Correu electronic" name="Correu electronic" type="text" placeholder="adreça de correu vàlida" class="form-control input-md" required="">
-          <span class="help-block">Facilitar una adreça elèctronica válida</span>  
-          </div>
-        </div>
-        
-        <!-- Password input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="introduir paraula de pas">contrasenya</label>
-          <div class="col-md-4">
-            <input id="introduir paraula de pas" name="introduir paraula de pas" type="password" placeholder="contrasenya" class="form-control input-md" required="">
-            <span class="help-block">contrasenya</span>
-          </div>
-        </div>
-        
-        <!-- Password input-->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="passwordinput">Password Input</label>
-          <div class="col-md-4">
-            <input id="passwordinput" name="passwordinput" type="password" placeholder="placeholder" class="form-control input-md">
-            <span class="help-block">help</span>
-          </div>
-        </div>
-        
-        <!-- Select Basic -->
-        <div class="form-group">
-          <label class="col-md-4 control-label" for="Provincia">Província</label>
-          <div class="col-md-4">
-            <select id="Provincia" name="Provincia" class="form-control">
-              <option value="1">Àlaba</option>
-              <option value="2">Alacant</option>
-              <option value="3">Albacete</option>
-              <option value="4">Almeria</option>
-              <option value="5">Astúries</option>
-              <option value="6">Àvila</option>
-              <option value="7">Badajoz</option>
-              <option value="8">Barcelona</option>
-              <option value="9">Biscaia</option>
-              <option value="10">Burgos</option>
-              <option value="11">Càceres</option>
-              <option value="12">Cadis</option>
-              <option value="13">Cantàbria</option>
-              <option value="14">Castelló de la Plana</option>
-              <option value="15">Ciudad Real</option>
-              <option value="16">Conca</option>
-              <option value="17">Còrdova</option>
-              <option value="18">Corunya, la</option>
-              <option value="19">Girona</option>
-              <option value="20">Granada</option>
-              <option value="21">Guadalajara</option>
-              <option value="22">Guipúscoa</option>
-              <option value="23">Huelva</option>
-              <option value="24">Illes Balears</option>
-              <option value="25">Jaén</option>
-              <option value="26">Lleida</option>
-              <option value="27">Lleó</option>
-              <option value="28">Lugo</option>
-              <option value="29">Madrid</option>
-              <option value="31">Màlaga</option>
-              <option value="32">Múrcia</option>
-              <option value="33">Navarra</option>
-              <option value="34">Osca</option>
-              <option value="35">Ourense</option>
-              <option value="36">Palència</option>
-              <option value="37">Palmas, Las</option>
-              <option value="38">Pontevedra</option>
-              <option value="39">Rioja, La</option>
-              <option value="40">Salamanca</option>
-              <option value="41">Santa Cruz de Tenerife</option>
-              <option value="42">Saragossa</option>
-              <option value="43">Segòvia</option>
-              <option value="44">Sevilla</option>
-              <option value="45">Sòria</option>
-              <option value="46">Tarragona</option>
-              <option value="47">Terol</option>
-              <option value="48">Toledo</option>
-              <option value="49">València</option>
-              <option value="50">Valladolid</option>
-              <option value="51">Zamora</option>
-              <option value="52">Ceuta</option>
-              <option value="53">Melilla</option>
-            </select>
-          </div>
-        </div>
-        
-        </fieldset>
-        </form>
-    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Bootstrap CSS -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/vali.css" type="text/css">
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
-    -->
-  </body>
+</head>
+
+<body oncontextmenu='return false' class='snippet-body'>
+    <div class="container ">
+        <div class="col-md-6 mx-auto p-0">
+            <div class="card">
+                <form method="POST" action="registrado.html" id="myFormId" onsubmit="return registerValidate()" name="myForm">
+                <div class="login-box">
+                    <div class="login-snip"> <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label
+                            for="tab-1" class="tab">Inici de sessió</label> <input id="tab-2" type="radio" name="tab"
+                            class="sign-up"><label for="tab-2" class="tab">Registre</label>
+                        <div class="login-space">
+                            <div class="login">
+                                <div class="group"> <label for="user" class="label">Usuari</label> <input id="inputUser"
+                                        type="text" class="input" placeholder="Introduïu el vostre nom d'usuari"> </div>
+                                        <div class="invalid-feedback" id="errorUser"></div>
+
+                                <div class="group"> <label for="pass" class="label">Contrasenya</label> <input id="inputPassword3"
+                                        type="password" class="input" data-type="password"
+                                        placeholder="Introduïu la contrasenya"> </div>
+                                        <div class="invalid-feedback" id="errorPassword"></div>
+
+                                <div class="group"> <input id="check" type="checkbox" class="check" checked> <label
+                                        for="check"><span class="icon"></span> Mantenir-me inscrit</label> </div>
+                                <div class="group"> <input type="submit" class="button" value="iniciar la sessió">
+                                </div>
+                                <div class="hr"></div>
+                                <div class="foot"> <a href="#">Has oblidat la Contrasenya?</a> </div>
+                                                                                     
+                            </div>
+                        </form>
+
+                            <!--Registre-->
+                            <form method="POST" action="registrado.html" id="myFormId" onsubmit="return registerValidate()" name="myForm">
+                            <div class="sign-up-form">
+                                <div class="group"> <label for="user" class="label">Usuari</label> <input id="user"
+                                        type="text" class="input" placeholder="Crea el teu nom d'usuari"> </div>
+                                        <div class="invalid-feedback" id="errorUser"></div>
+
+                                <div class="group"> <label for="pass" class="label">Contrasenya</label> <input id="inputPassword1"
+                                        type="password" class="input" data-type="password"
+                                        placeholder="Crea la contrasenya"> </div>
+                                        <div class="invalid-feedback" id="errorPassword"></div>
+
+                                <div class="group"> <label for="pass" class="label">Repetir Contrasenya</label> <input
+                                        id="inputPassword2" type="password" class="input" data-type="password"
+                                        placeholder="Repetiu la contrasenya"> </div>
+                                        <div class="invalid-feedback" id="errorPassword"></div>
+
+                                <div class="group"> <label for="pass" class="label">Adreça de correu</label> <input
+                                        id="inputAddress" type="text" class="input"
+                                        placeholder="Introduïu la vostra adreça electrònica"> </div>
+                                        <div class="invalid-feedback" id="errorEmail"></div>
+
+                                <div class="group"> <label for="pass" class="label">Província</label>
+                                    <select id="pass group inputProvince" type="text" class="custom-select mb-4 input label"
+                                        style="height:auto">
+                                        <option value="1">Àlaba</option>
+                                        <option value="2">Alacant</option>
+                                        <option value="3">Albacete</option>
+                                        <option value="4">Almeria</option>
+                                        <option value="5">Astúries</option>
+                                        <option value="6">Àvila</option>
+                                        <option value="7">Badajoz</option>
+                                        <option value="8">Barcelona</option>
+                                        <option value="9">Biscaia</option>
+                                        <option value="10">Burgos</option>
+                                        <option value="11">Càceres</option>
+                                        <option value="12">Cadis</option>
+                                        <option value="13">Cantàbria</option>
+                                        <option value="14">Castelló de la Plana</option>
+                                        <option value="15">Ciudad Real</option>
+                                        <option value="16">Conca</option>
+                                        <option value="17">Còrdova</option>
+                                        <option value="18">Corunya, la</option>
+                                        <option value="19">Girona</option>
+                                        <option value="20">Granada</option>
+                                        <option value="21">Guadalajara</option>
+                                        <option value="22">Guipúscoa</option>
+                                        <option value="23">Huelva</option>
+                                        <option value="24">Illes Balears</option>
+                                        <option value="25">Jaén</option>
+                                        <option value="26">Lleida</option>
+                                        <option value="27">Lleó</option>
+                                        <option value="28">Lugo</option>
+                                        <option value="29">Madrid</option>
+                                        <option value="31">Màlaga</option>
+                                        <option value="32">Múrcia</option>
+                                        <option value="33">Navarra</option>
+                                        <option value="34">Osca</option>
+                                        <option value="35">Ourense</option>
+                                        <option value="36">Palència</option>
+                                        <option value="37">Palmas, Las</option>
+                                        <option value="38">Pontevedra</option>
+                                        <option value="39">Rioja, La</option>
+                                        <option value="40">Salamanca</option>
+                                        <option value="41">Santa Cruz de Tenerife</option>
+                                        <option value="42">Saragossa</option>
+                                        <option value="43">Segòvia</option>
+                                        <option value="44">Sevilla</option>
+                                        <option value="45">Sòria</option>
+                                        <option value="46">Tarragona</option>
+                                        <option value="47">Terol</option>
+                                        <option value="48">Toledo</option>
+                                        <option value="49">València</option>
+                                        <option value="50">Valladolid</option>
+                                        <option value="51">Zamora</option>
+                                        <option value="52">Ceuta</option>
+                                        <option value="53">Melilla</option>
+                                </div>
+                                <div class="invalid-feedback" id="errorProvince"></div>
+
+
+
+                                <div class="group"> <input type="submit" class="button" value="Registre"> </div>
+                            </form>
+                                <div class="hr"></div>
+                                <div class="foot"> <label for="tab-1">Ja és membre?</label> </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </div>
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+      <!--Arxiu javaScript-->
+      <script src="./js/validacion.js" type="text/javascript"></script>
+
+</body>
+
+
 </html>
