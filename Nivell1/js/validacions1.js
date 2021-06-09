@@ -96,12 +96,12 @@ function entradaRegistre() {
 
 
 //Efecte blur  
-/*
+
 form.addEventListener('blur', (event) => {
     console.log(event);
     if (event.target.value != '') event.target.classList.remove('is-invalid');
     //registerValidate();
-}, true);*/
+}, true);
 
 //Validació de Email
 function validaEmail(email) {

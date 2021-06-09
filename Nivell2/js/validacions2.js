@@ -30,6 +30,9 @@ function validacioAcces() {
         entraPass.classList.add('is-invalid');
         document.getElementById('errorPass').textContent = 'El camp és obligat';
         aplegaErrors++;
+    } else if (!validaContra(entraPass.value)) {
+        entraPass.classList.add('is-invalid');
+        document.getElementById('errorPass').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
     }
 
     if (aplegaErrors > 0) {
@@ -69,11 +72,21 @@ function entradaRegistre() {
         inputPassword.classList.add('is-invalid');
         document.getElementById('errorPassword').textContent = 'El camp és obligatori';
         aplegaErrors ++;
+    } else if (!validaContra(password.value)) {
+        inputPassword.classList.add('is-invalid');
+        document.getElementById('errorPassword').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
+        aplegaErrors ++;
     }
 
     if (inputPassword2.value == '') {
         inputPassword2.classList.add('is-invalid');
         document.getElementById('errorPassword2').textContent = 'El camp és obligatori';
+        aplegaErrors ++;
+    }
+
+    if (inputPassword2 !== inputPassword) {
+        inputPassword2.classList.add('is-invalid');;
+        document.getElementById('errorPassword2').textContent = 'Ambdues contrasenyes no coincideixen';
         aplegaErrors ++;
     }
 
@@ -105,6 +118,12 @@ form.addEventListener('blur', (event) => {
 
 //Validació de Email
 function validaEmail(email) {
-	var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	let regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 	return regex.test(email) ? true : false;
+}
+
+//Validació contrasenya
+function validaContra(password) {
+let regex = /(?=.*[A-Z])(?=.*[0-9]).{8,}/;
+return regex.test(password) ? true : false;
 }
