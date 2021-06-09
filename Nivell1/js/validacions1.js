@@ -20,7 +20,10 @@ function validacioAcces() {
         entraMail.classList.add('is-invalid');
         document.getElementById('errorMail').textContent = 'El camp és obligat';
         aplegaErrors++;
-
+    } else if (!validaEmail(entraMail.value)) {
+        entraMail.classList.add('is-invalid');
+        document.getElementById('errorMail').textContent = 'El correu introduït no té el format adequat';
+        aplegaErrors ++;
     }
 
     if (entraPass.value == "") {
@@ -45,7 +48,7 @@ function entradaRegistre() {
     //declaració variables regitres
 
 
-    //Condicions camps vuits
+    //Condicions camps vuits i validacions
     if (entraNom.value == '') {
         entraNom.classList.add('is-invalid');
         document.getElementById('errorNom').textContent = 'El camp és obligatori';
@@ -55,6 +58,10 @@ function entradaRegistre() {
     if (introMail.value == '') {
         introMail.classList.add('is-invalid');
         document.getElementById('errorIntroMail').textContent = 'El camp és obligatori';
+        aplegaErrors ++;
+    } else if (!validaEmail(introMail.value)) {
+        introMail.classList.add('is-invalid');
+        document.getElementById('errorIntroMail').textContent = 'El correu introduït no té el format adequat';
         aplegaErrors ++;
     }
 
@@ -95,3 +102,9 @@ form.addEventListener('blur', (event) => {
     if (event.target.value != '') event.target.classList.remove('is-invalid');
     //registerValidate();
 }, true);
+
+//Validació de Email
+function validaEmail(email) {
+	var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	return regex.test(email) ? true : false;
+}
