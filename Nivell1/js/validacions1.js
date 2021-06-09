@@ -15,7 +15,6 @@ function validacioAcces() {
 
     //Condicionals errors
 
-
     if (entraMail.value == "") {
         entraMail.classList.add('is-invalid');
         document.getElementById('errorMail').textContent = 'El camp és obligat';
@@ -96,12 +95,13 @@ function entradaRegistre() {
 
 
 
-//Efecte blur
+//Efecte blur  
+/*
 form.addEventListener('blur', (event) => {
     console.log(event);
     if (event.target.value != '') event.target.classList.remove('is-invalid');
     //registerValidate();
-}, true);
+}, true);*/
 
 //Validació de Email
 function validaEmail(email) {
