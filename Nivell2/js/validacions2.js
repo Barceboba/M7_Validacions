@@ -6,8 +6,9 @@ const form = document.getElementById("myFormId");
 let aplegaErrors = 0;
 
 //Funcio validar accés
-function validacioAcces() {
+function validacioAcces(e) {
 
+    e.preventDefault();
 
 
     //declaracio variables log
@@ -42,15 +43,15 @@ function validacioAcces() {
     } else {
         alert('Validat');
         return true;
-        
+
     }
 }
 
 const forms = document.getElementById("myFormReg");
 //Funcio registre usuari
-function entradaRegistre() {
+function entradaRegistre(e) {
 
-
+    e.preventDefault();
 
     //declaració variables regitres
 
@@ -59,41 +60,41 @@ function entradaRegistre() {
     if (entraNom.value == '') {
         entraNom.classList.add('is-invalid');
         document.getElementById('errorNom').textContent = 'El camp és obligatori';
-        aplegaErrors ++;
+        aplegaErrors++;
     }
 
     if (introMail.value == '') {
         introMail.classList.add('is-invalid');
         document.getElementById('errorIntroMail').textContent = 'El camp és obligatori';
-        aplegaErrors ++;
+        aplegaErrors++;
     } else if (!validaEmail(introMail.value)) {
         introMail.classList.add('is-invalid');
         document.getElementById('errorIntroMail').textContent = 'El correu introduït no té el format adequat';
-        aplegaErrors ++;
+        aplegaErrors++;
     }
 
     if (inputPassword.value == '') {
         inputPassword.classList.add('is-invalid');
         document.getElementById('errorPassword').textContent = 'El camp és obligatori';
-        aplegaErrors ++;
+        aplegaErrors++;
     } else if (!validaContra(inputPassword.value)) {
         inputPassword.classList.add('is-invalid');
         document.getElementById('errorPassword').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
-        aplegaErrors ++;
+        aplegaErrors++;
     }
 
     if (inputPassword2.value == '') {
         inputPassword2.classList.add('is-invalid');
         document.getElementById('errorPassword2').textContent = 'El camp és obligatori';
-        aplegaErrors ++;
+        aplegaErrors++;
     } else if (!validaContra(inputPassword2.value)) {
         inputPassword2.classList.add('is-invalid');
         document.getElementById('errorPassword2').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
-        aplegaErrors ++;
+        aplegaErrors++;
     } else if (inputPassword2 == inputPassword) {
         inputPassword2.classList.add('is-invalid');
         document.getElementById('errorPassword2').textContent = 'Ambdues contrasenyes no coincideixen';
-        aplegaErrors ++;
+        aplegaErrors++;
     }
 
     if (inputProvince.value == '') {

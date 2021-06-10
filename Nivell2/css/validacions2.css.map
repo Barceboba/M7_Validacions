@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../scss/validacions2.scss"
+    ],
+    "names": [],
+    "file": "validacions2.css"
+}

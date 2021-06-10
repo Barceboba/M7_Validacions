@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAKA,AAAA,EAAE,CAAC;EACC,eAAe,EAAE,IAAI;CACtB",
+    "sources": [
+        "../scss/validacions3.scss"
+    ],
+    "names": [],
+    "file": "validacions3.css"
+}
