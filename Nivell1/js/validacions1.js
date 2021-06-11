@@ -1,13 +1,13 @@
 //Inputs html
 const form = document.getElementById("myFormId");
 
- //Variable acumulació errors a zero
- let aplegaErrors = 0;
- 
-//Funcio validar accés
-function validacioAcces() {
+//Variable acumulació errors a zero
+let aplegaErrors = 0;
 
-   
+//Funcio validar accés
+function validacioAcces(e) {
+    e.preventDefault();
+
 
     //declaracio variables log
     // let entraMail = document.getElementById('entraMail');
@@ -22,7 +22,7 @@ function validacioAcces() {
     } else if (!validaEmail(entraMail.value)) {
         entraMail.classList.add('is-invalid');
         document.getElementById('errorMail').textContent = 'El correu introduït no té el format adequat';
-        aplegaErrors ++;
+        aplegaErrors++;
     }
 
     if (entraPass.value == "") {
@@ -34,6 +34,7 @@ function validacioAcces() {
     if (aplegaErrors > 0) {
         return false;
     } else {
+        alert('Accés validat');
         return true;
     }
 }
@@ -51,41 +52,42 @@ function entradaRegistre() {
     if (entraNom.value == '') {
         entraNom.classList.add('is-invalid');
         document.getElementById('errorNom').textContent = 'El camp és obligatori';
-        aplegaErrors ++;
+        aplegaErrors++;
     }
 
     if (introMail.value == '') {
         introMail.classList.add('is-invalid');
         document.getElementById('errorIntroMail').textContent = 'El camp és obligatori';
-        aplegaErrors ++;
+        aplegaErrors++;
     } else if (!validaEmail(introMail.value)) {
         introMail.classList.add('is-invalid');
         document.getElementById('errorIntroMail').textContent = 'El correu introduït no té el format adequat';
-        aplegaErrors ++;
+        aplegaErrors++;
     }
 
     if (inputPassword.value == '') {
         inputPassword.classList.add('is-invalid');
         document.getElementById('errorPassword').textContent = 'El camp és obligatori';
-        aplegaErrors ++;
+        aplegaErrors++;
     }
 
     if (inputPassword2.value == '') {
         inputPassword2.classList.add('is-invalid');
         document.getElementById('errorPassword2').textContent = 'El camp és obligatori';
-        aplegaErrors ++;
+        aplegaErrors++;
     }
 
     if (inputProvince.value == '') {
         inputProvince.classList.add('is-invalid');
         document.getElementById('errorProvince').textContent = 'Triar província';
-        aplegaErrors ++;
+        aplegaErrors++;
 
     }
 
     if (aplegaErrors > 0) {
         return false;
     } else {
+        alert('Usuari registrat');
         return true;
     }
 
@@ -105,6 +107,6 @@ form.addEventListener('blur', (event) => {
 
 //Validació de Email
 function validaEmail(email) {
-	var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-	return regex.test(email) ? true : false;
+    var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email) ? true : false;
 }

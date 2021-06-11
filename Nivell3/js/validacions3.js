@@ -6,8 +6,9 @@ const form = document.getElementById("myFormId");
 let aplegaErrors = 0;
 
 //Funcio validar accés
-function validacioAcces() {
+function validacioAcces(e) {
 
+    e.preventDefault();
 
 
     //declaracio variables log
@@ -40,7 +41,7 @@ function validacioAcces() {
     if (aplegaErrors > 0) {
         return false;
     } else {
-        alert('Validat');
+        //alert('Validat');
         return true;
 
     }
@@ -48,8 +49,8 @@ function validacioAcces() {
 
 const forms = document.getElementById("myFormReg");
 //Funcio registre usuari
-function entradaRegistre() {
-
+function entradaRegistre(e) {
+    e.preventDefault();
 
 
     //declaració variables regitres
@@ -108,7 +109,7 @@ function entradaRegistre() {
     if (inputProvince.value == '') {
         inputProvince.classList.add('is-invalid');
         document.getElementById('errorProvince').textContent = 'Triar província';
-        aplegaErrors ++;
+        aplegaErrors++;
     } else {
         inputProvince = inputProvince.value;
         console.log(inputProvince);
@@ -148,8 +149,8 @@ function validaContra(password) {
 
 //Modal dades registre
 function dadesModal() {
-document.getElementById('valiNom').textContent = entraNom;
-document.getElementById('valiMail').textContent = introMail;
-document.getElementById('valiContra').textContent = inputPassword;
-document.getElementById('valiProvi').textContent = inputProvince;
+    document.getElementById('valiNom').textContent = entraNom;
+    document.getElementById('valiMail').textContent = introMail;
+    document.getElementById('valiContra').textContent = inputPassword;
+    document.getElementById('valiProvi').textContent = inputProvince;
 }

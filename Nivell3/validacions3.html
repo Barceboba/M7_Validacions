@@ -25,7 +25,7 @@
 </nav>
 
 <!-- Modal acces-->
-<form method="POST" action="#" id="myFormId" onsubmit="return validacioAcces()" name="myForm">
+<form action="#" id="myFormId" onsubmit="return validacioAcces(event)" name="myForm">
     <div class="modal" id="acces" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -67,7 +67,7 @@
 </form>
 
 <!-- Modal registre-->
-<form method="POST" action="#" id="myFormReg" onsubmit="return entradaRegistre()" name="myReg">
+<form action="#" id="myFormReg" onsubmit="return entradaRegistre(event)" name="myReg">
 
     <div class="modal" id="registre" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
