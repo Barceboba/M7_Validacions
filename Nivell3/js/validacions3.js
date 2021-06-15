@@ -17,7 +17,6 @@ function validacioAcces(e) {
 
     //Condicionals errors
 
-
     if (entraMail.value == "") {
         entraMail.classList.add('is-invalid');
         document.getElementById('errorMail').textContent = 'El camp és obligat';
@@ -48,6 +47,9 @@ function validacioAcces(e) {
 }
 
 const forms = document.getElementById("myFormReg");
+const inputs = document.querySelectorAll('#myFormReg input option');
+
+
 //Funcio registre usuari
 function entradaRegistre(e) {
     e.preventDefault();
@@ -63,7 +65,7 @@ function entradaRegistre(e) {
         aplegaErrors++;
     } else {
         entraNom = entraNom.value;
-        console.log(entraNom);
+        //console.log(entraNom);
     }
 
     if (introMail.value == '') {
@@ -76,7 +78,7 @@ function entradaRegistre(e) {
         aplegaErrors++;
     } else {
         introMail = introMail.value;
-        console.log(introMail);
+        //console.log(introMail);
     }
 
     if (inputPassword.value == '') {
@@ -89,7 +91,7 @@ function entradaRegistre(e) {
         aplegaErrors++;
     } else {
         inputPassword = inputPassword.value;
-        console.log(inputPassword);
+        // console.log(inputPassword);
     }
 
     if (inputPassword2.value == '') {
@@ -112,20 +114,22 @@ function entradaRegistre(e) {
         aplegaErrors++;
     } else {
         inputProvince = inputProvince.value;
-        console.log(inputProvince);
+        //console.log(inputProvince);
     }
 
     if (aplegaErrors > 0) {
         return false;
     } else {
         //alert('Registrat');
+
+        //cridem al modal de dades finals
+        modal();
         $('#campsValits').modal();
         return true;
     }
 
-
-
 }
+
 
 
 //Efecte blur
@@ -147,9 +151,11 @@ function validaContra(password) {
     return regex.test(password) ? true : false;
 }
 
-//Modal dades registre
-function dadesModal() {
-    document.getElementById('valiNom').textContent = entraNom;
+
+//Modal retor dades registre
+function modal() {
+
+    document.getElementById('valiNom').innerHTML = entraNom;
     document.getElementById('valiMail').textContent = introMail;
     document.getElementById('valiContra').textContent = inputPassword;
     document.getElementById('valiProvi').textContent = inputProvince;
