@@ -1,6 +1,6 @@
 lista variables
 
-1 Variables Acces validacioAcces()  --> abstracció
+1 Variables Acces validacioAcces()  --> abstracció refactorització
 
 1.1 entraMail --> posaMail
     errorMail --> mail

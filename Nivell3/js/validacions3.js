@@ -11,10 +11,6 @@ const llistaErrors = {
     valitPass: "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número",
     iguPass: 'Ambdues contrasenyes no coincideixen',
     triaProv: 'Triar província'
-
-
-
-
 }
 
 const llistaId = {
@@ -22,8 +18,6 @@ const llistaId = {
     pass: 'errorPass',
     nom: 'errorNom',
     provincia: 'errorProvince'
-
-
 }
 
 
@@ -58,7 +52,7 @@ function validacioAcces(e) {
 
     if (entraMail.value == '') {
         validacio(e.target[1].value, errorMail, 'El camp és obligat');
-        validacio2(posaMail, llistaId.mail, campOblig);
+        validacio2(posaMail, llistaId.mail,  llistaErrors.campOblig);
 
     } else {
         entraMail = entraMail.value;
@@ -93,8 +87,8 @@ function validacioAcces(e) {
     } */
 }
 
-const forms = document.getElementById("myFormReg");
-const inputs = document.querySelectorAll('#myFormReg input option');
+/* const forms = document.getElementById("myFormReg");
+const inputs = document.querySelectorAll('#myFormReg input option'); */
 
 //Abstracció de entrades registre
 const ficaNom = document.getElementById('entraNom');
@@ -169,16 +163,16 @@ function entradaRegistre(e) {
         //console.log(inputProvince);
     } */
 
-    if (aplegaErrors > 0) {
+    /* if (aplegaErrors > 0) {
         return false;
-    } else {
+    } else { 
         //alert('Registrat');
-
+    }*/
         //cridem al modal de dades finals
         modal();
         $('#campsValits').modal();
         return true;
-    }
+    
 
 }
 
