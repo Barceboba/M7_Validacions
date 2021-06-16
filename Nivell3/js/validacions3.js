@@ -1,14 +1,53 @@
 //Inputs html
 const form = document.getElementById("myFormId");
 
+//Abstracció de entrades login
+const posaMail = document.getElementById('entraMail');
+const posaPass = document.getElementById('entraPass');
+
+const llistaErrors = {
+    campOblig: 'El camp és obligat',
+    formatAde: 'El correu introduït no té el format adequat',
+    valitPass: "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número",
+    iguPass: 'Ambdues contrasenyes no coincideixen',
+    triaProv: 'Triar província'
+
+
+
+
+}
+
+const llistaId = {
+    mail: 'errorMail',
+    pass: 'errorPass',
+    nom: 'errorNom',
+    provincia: 'errorProvince'
+
+
+}
+
 
 //Variable acumulació errors a zero
-let aplegaErrors = 0;
+//let aplegaErrors = 0;
+
+function validacio(target, errorText, text) {
+    target.className.add('is-invalid');
+    document.getElementById(errorText).textContent = text;
+    aplegaErrors++;
+};
+
+function validacio2(target, errorText, text) {
+    target.className.add('is-invalid');
+    document.getElementById(errorText).textContent = text;
+    aplegaErrors++;
+}
 
 //Funcio validar accés
 function validacioAcces(e) {
 
     e.preventDefault();
+
+
 
 
     //declaracio variables log
@@ -17,7 +56,15 @@ function validacioAcces(e) {
 
     //Condicionals errors
 
-    if (entraMail.value == "") {
+    if (entraMail.value == '') {
+        validacio(e.target[1].value, errorMail, 'El camp és obligat');
+        validacio2(posaMail, llistaId.mail, campOblig);
+
+    } else {
+        entraMail = entraMail.value;
+    }
+
+   /*  if (entraMail.value == "") {
         entraMail.classList.add('is-invalid');
         document.getElementById('errorMail').textContent = 'El camp és obligat';
         aplegaErrors++;
@@ -43,13 +90,18 @@ function validacioAcces(e) {
         //alert('Validat');
         return true;
 
-    }
+    } */
 }
 
 const forms = document.getElementById("myFormReg");
 const inputs = document.querySelectorAll('#myFormReg input option');
 
-
+//Abstracció de entrades registre
+const ficaNom = document.getElementById('entraNom');
+const ficaMail = document.getElementById('introMail');
+const ficaPass = document.getElementById('inputPassword');
+const ficaPass2 = document.getElementById('inputPassword2');
+const ficaProv = document.getElementById('inputProvince');
 //Funcio registre usuari
 function entradaRegistre(e) {
     e.preventDefault();
@@ -59,7 +111,7 @@ function entradaRegistre(e) {
 
 
     //Condicions camps vuits i validacions
-    if (entraNom.value == '') {
+   /*  if (entraNom.value == '') {
         entraNom.classList.add('is-invalid');
         document.getElementById('errorNom').textContent = 'El camp és obligatori';
         aplegaErrors++;
@@ -115,7 +167,7 @@ function entradaRegistre(e) {
     } else {
         inputProvince = inputProvince.value;
         //console.log(inputProvince);
-    }
+    } */
 
     if (aplegaErrors > 0) {
         return false;

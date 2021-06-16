@@ -1,0 +1,34 @@
+lista variables
+
+1 Variables Acces validacioAcces()  --> abstracció
+
+1.1 entraMail --> posaMail
+    errorMail --> mail
+    
+1.2 entraPass --> posaPass
+    errorPass --> pass
+
+2 Variables Registre entradaRegistre()
+
+2.1 entraNom --> ficaNom
+    errorNom --> nom
+
+2.2 introMail --> ficaMail
+    errorIntroMail
+
+2.3 inputPassword --> ficaPass
+    errorPassword
+
+2.4 inputPassword2 --> ficaPass2
+    errorPassword2
+
+2.5 inputProvince --> ficaProv
+    errorProvince --> provincia
+
+Modal Camps correctes id campsValits
+
+1 valiNom
+2 valiMail
+3 valiContra
+4 valiProvi 
+
