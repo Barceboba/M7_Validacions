@@ -5,6 +5,9 @@ const form = document.getElementById("myFormId");
 const posaMail = document.getElementById('entraMail');
 const posaPass = document.getElementById('entraPass');
 
+
+
+//camps
 const llistaErrors = {
     campOblig: 'El camp és obligat',
     formatAde: 'El correu introduït no té el format adequat',
@@ -37,55 +40,55 @@ function validacio2(target, errorText, text) {
 }
 
 //Funcio validar accés
-function validacioAcces(e) {
+/* function validacio(e) {
 
-    e.preventDefault();
-
-
+    e.preventDefault(); */
 
 
-    //declaracio variables log
-    // let entraMail = document.getElementById('entraMail');
-    // let entraPass = document.getElementById('entraPass');
 
-    //Condicionals errors
 
-    if (entraMail.value == '') {
-        validacio(e.target[1].value, errorMail, 'El camp és obligat');
-        validacio2(posaMail, llistaId.mail,  llistaErrors.campOblig);
+//declaracio variables log
+let entraMail = document.getElementById('entraMail');
+let entraPass = document.getElementById('entraPass');
 
-    } else {
-        entraMail = entraMail.value;
-    }
+//Condicionals errors
 
-   /*  if (entraMail.value == "") {
-        entraMail.classList.add('is-invalid');
-        document.getElementById('errorMail').textContent = 'El camp és obligat';
-        aplegaErrors++;
-    } else if (!validaEmail(entraMail.value)) {
-        entraMail.classList.add('is-invalid');
-        document.getElementById('errorMail').textContent = 'El correu introduït no té el format adequat';
-        aplegaErrors++;
-    }
+if (entraMail.value == '') {
+    //validacio(e.target[1].value, errorMail, 'El camp és obligat');
+    validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
 
-    if (entraPass.value == "") {
-        entraPass.classList.add('is-invalid');
-        document.getElementById('errorPass').textContent = 'El camp és obligat';
-        aplegaErrors++;
-    } else if (!validaContra(entraPass.value)) {
-        entraPass.classList.add('is-invalid');
-        document.getElementById('errorPass').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
-        aplegaErrors++;
-    }
-
-    if (aplegaErrors > 0) {
-        return false;
-    } else {
-        //alert('Validat');
-        return true;
-
-    } */
+} else {
+    entraMail = entraMail.value;
 }
+
+/*  if (entraMail.value == "") {
+     entraMail.classList.add('is-invalid');
+     document.getElementById('errorMail').textContent = 'El camp és obligat';
+     aplegaErrors++;
+ } else if (!validaEmail(entraMail.value)) {
+     entraMail.classList.add('is-invalid');
+     document.getElementById('errorMail').textContent = 'El correu introduït no té el format adequat';
+     aplegaErrors++;
+ }
+
+ if (entraPass.value == "") {
+     entraPass.classList.add('is-invalid');
+     document.getElementById('errorPass').textContent = 'El camp és obligat';
+     aplegaErrors++;
+ } else if (!validaContra(entraPass.value)) {
+     entraPass.classList.add('is-invalid');
+     document.getElementById('errorPass').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
+     aplegaErrors++;
+ }
+
+ if (aplegaErrors > 0) {
+     return false;
+ } else {
+     //alert('Validat');
+     return true;
+
+ } */
+//}
 
 /* const forms = document.getElementById("myFormReg");
 const inputs = document.querySelectorAll('#myFormReg input option'); */
@@ -105,74 +108,74 @@ function entradaRegistre(e) {
 
 
     //Condicions camps vuits i validacions
-   /*  if (entraNom.value == '') {
-        entraNom.classList.add('is-invalid');
-        document.getElementById('errorNom').textContent = 'El camp és obligatori';
-        aplegaErrors++;
-    } else {
-        entraNom = entraNom.value;
-        //console.log(entraNom);
-    }
-
-    if (introMail.value == '') {
-        introMail.classList.add('is-invalid');
-        document.getElementById('errorIntroMail').textContent = 'El camp és obligatori';
-        aplegaErrors++;
-    } else if (!validaEmail(introMail.value)) {
-        introMail.classList.add('is-invalid');
-        document.getElementById('errorIntroMail').textContent = 'El correu introduït no té el format adequat';
-        aplegaErrors++;
-    } else {
-        introMail = introMail.value;
-        //console.log(introMail);
-    }
-
-    if (inputPassword.value == '') {
-        inputPassword.classList.add('is-invalid');
-        document.getElementById('errorPassword').textContent = 'El camp és obligatori';
-        aplegaErrors++;
-    } else if (!validaContra(inputPassword.value)) {
-        inputPassword.classList.add('is-invalid');
-        document.getElementById('errorPassword').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
-        aplegaErrors++;
-    } else {
-        inputPassword = inputPassword.value;
-        // console.log(inputPassword);
-    }
-
-    if (inputPassword2.value == '') {
-        inputPassword2.classList.add('is-invalid');
-        document.getElementById('errorPassword2').textContent = 'El camp és obligatori';
-        aplegaErrors++;
-    } else if (!validaContra(inputPassword2.value)) {
-        inputPassword2.classList.add('is-invalid');
-        document.getElementById('errorPassword2').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
-        aplegaErrors++;
-    } else if (inputPassword2 == inputPassword) {
-        inputPassword2.classList.add('is-invalid');
-        document.getElementById('errorPassword2').textContent = 'Ambdues contrasenyes no coincideixen';
-        aplegaErrors++;
-    }
-
-    if (inputProvince.value == '') {
-        inputProvince.classList.add('is-invalid');
-        document.getElementById('errorProvince').textContent = 'Triar província';
-        aplegaErrors++;
-    } else {
-        inputProvince = inputProvince.value;
-        //console.log(inputProvince);
-    } */
+    /*  if (entraNom.value == '') {
+         entraNom.classList.add('is-invalid');
+         document.getElementById('errorNom').textContent = 'El camp és obligatori';
+         aplegaErrors++;
+     } else {
+         entraNom = entraNom.value;
+         //console.log(entraNom);
+     }
+ 
+     if (introMail.value == '') {
+         introMail.classList.add('is-invalid');
+         document.getElementById('errorIntroMail').textContent = 'El camp és obligatori';
+         aplegaErrors++;
+     } else if (!validaEmail(introMail.value)) {
+         introMail.classList.add('is-invalid');
+         document.getElementById('errorIntroMail').textContent = 'El correu introduït no té el format adequat';
+         aplegaErrors++;
+     } else {
+         introMail = introMail.value;
+         //console.log(introMail);
+     }
+ 
+     if (inputPassword.value == '') {
+         inputPassword.classList.add('is-invalid');
+         document.getElementById('errorPassword').textContent = 'El camp és obligatori';
+         aplegaErrors++;
+     } else if (!validaContra(inputPassword.value)) {
+         inputPassword.classList.add('is-invalid');
+         document.getElementById('errorPassword').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
+         aplegaErrors++;
+     } else {
+         inputPassword = inputPassword.value;
+         // console.log(inputPassword);
+     }
+ 
+     if (inputPassword2.value == '') {
+         inputPassword2.classList.add('is-invalid');
+         document.getElementById('errorPassword2').textContent = 'El camp és obligatori';
+         aplegaErrors++;
+     } else if (!validaContra(inputPassword2.value)) {
+         inputPassword2.classList.add('is-invalid');
+         document.getElementById('errorPassword2').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
+         aplegaErrors++;
+     } else if (inputPassword2 == inputPassword) {
+         inputPassword2.classList.add('is-invalid');
+         document.getElementById('errorPassword2').textContent = 'Ambdues contrasenyes no coincideixen';
+         aplegaErrors++;
+     }
+ 
+     if (inputProvince.value == '') {
+         inputProvince.classList.add('is-invalid');
+         document.getElementById('errorProvince').textContent = 'Triar província';
+         aplegaErrors++;
+     } else {
+         inputProvince = inputProvince.value;
+         //console.log(inputProvince);
+     } */
 
     /* if (aplegaErrors > 0) {
         return false;
     } else { 
         //alert('Registrat');
     }*/
-        //cridem al modal de dades finals
-        modal();
-        $('#campsValits').modal();
-        return true;
-    
+    //cridem al modal de dades finals
+    modal();
+    $('#campsValits').modal();
+    return true;
+
 
 }
 
@@ -201,8 +204,8 @@ function validaContra(password) {
 //Modal retor dades registre
 function modal() {
 
-    document.getElementById('valiNom').innerHTML = entraNom;
-    document.getElementById('valiMail').textContent = introMail;
-    document.getElementById('valiContra').textContent = inputPassword;
-    document.getElementById('valiProvi').textContent = inputProvince;
+    indocument.getElementById('valiMail').innerHTML = entraNom;
+    indocument.getElementById('valiMail').innerHTML = introMail;
+    indocument.getElementById('valiMail').innerHTML = inputPassword;
+    indocument.getElementById('valiMail').innerHTML = inputProvince;
 }
