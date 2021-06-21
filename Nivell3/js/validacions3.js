@@ -59,15 +59,15 @@ function validacio2(target, errorText, text) {
 function entraLog(e) {
 
     e.preventDefault();
-    
+
 
     //Condicionals errors
 
     if (entraMail.value == '') {
         /* validacio(e.target[1].value, errorMail, 'El camp és obligat'); */
         validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
-    }else if(!validaEmail(entraMail.value)) {
-        validacio2(posaMail, llistaId.mail, llistaErrors.formatAde); 
+    } else if (!validaEmail(entraMail.value)) {
+        validacio2(posaMail, llistaId.mail, llistaErrors.formatAde);
     } else {
         entraMail = entraMail.value;
     }
@@ -75,34 +75,12 @@ function entraLog(e) {
     if (entraPass.value == '') {
         /* validacio(e.target[1].value, errorPass, 'El camp és obligat'); */
         validacio2(posaPass, llistaId.pass, llistaErrors.campOblig);
-    } else if(!validaContra(entraPass.value)) {
+    } else if (!validaContra(entraPass.value)) {
         validacio2(posaPass, llistaId.pass, llistaErrors.valitPass);
 
     } else {
         entraPass = entraPass.value;
     }
-
-
-
-    /*  if (entraMail.value == "") {
-         entraMail.classList.add('is-invalid');
-         document.getElementById('errorMail').textContent = 'El camp és obligat';
-         aplegaErrors++;
-     } else if (!validaEmail(entraMail.value)) {
-         entraMail.classList.add('is-invalid');
-         document.getElementById('errorMail').textContent = 'El correu introduït no té el format adequat';
-         aplegaErrors++;
-     }
-    
-     if (entraPass.value == "") {
-         entraPass.classList.add('is-invalid');
-         document.getElementById('errorPass').textContent = 'El camp és obligat';
-         aplegaErrors++;
-     } else if (!validaContra(entraPass.value)) {
-         entraPass.classList.add('is-invalid');
-         document.getElementById('errorPass').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
-         aplegaErrors++;
-     }*/
 
     if (aplegaErrors > 0) {
         return false;
@@ -135,20 +113,28 @@ function registre() {
     if (introMail.value == '') {
         /* validacio(e.target[1].value, errorMail, 'El camp és obligat'); */
         validacio2(ficaMail, llistaId.mail2, llistaErrors.campOblig);
-
+    } else if (!validaEmail(introMail.value)) {
+        validacio2(ficaMail, llistaId.mail2, llistaErrors.formatAde);
     } else {
         introMail = introMail.value;
     }
 
     if (inputPassword.value == '') {
         validacio2(ficaPass, llistaId.pass2, llistaErrors.campOblig);
+    } else if (!validaContra(inputPassword.value)) {
+        validacio2(ficaPass, llistaId.pass2, llistaErrors.valitPass);
     } else {
-        entraPass = entraPass.value;
+        inputPassword = inputPassword.value;
     }
+
     if (inputPassword2.value == '') {
         validacio2(ficaPass2, llistaId.pass3, llistaErrors.campOblig);
+    } else if (!validaContra(inputPassword2.value)) {
+        validacio2(ficaPass2, llistaId.pass3, llistaErrors.valitPass);
+    } else if (inputPassword2 == inputPassword) {
+        validacio2(ficaPass2, llistaId.pass3, llistaErrors.iguPass);
     } else {
-        entraPass = entraPass.value;
+        inputPassword2 = inputPassword2.value;
     }
 
     if (inputProvince.value == '') {
