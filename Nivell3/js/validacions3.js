@@ -129,7 +129,7 @@ function registre(e) {
         validacio2(ficaPass2, llistaId.pass3, llistaErrors.campOblig);
     } else if (!validaContra(inputPassword2.value)) {
         validacio2(ficaPass2, llistaId.pass3, llistaErrors.valitPass);
-    } else if (!inputPassword2.value, inputPassword.value) {
+    } else if (inputPassword2.value !== inputPassword) {
         validacio2(ficaPass2, llistaId.pass3, llistaErrors.iguPass);
     } else {
         inputPassword2 = inputPassword2.value;
