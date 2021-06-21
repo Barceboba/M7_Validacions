@@ -66,7 +66,8 @@ function entraLog(e) {
     if (entraMail.value == '') {
         /* validacio(e.target[1].value, errorMail, 'El camp és obligat'); */
         validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
-
+    }else if(!validaEmail(entraMail.value)) {
+        validacio2(posaMail, llistaId.mail, llistaErrors.formatAde); 
     } else {
         entraMail = entraMail.value;
     }
@@ -74,6 +75,8 @@ function entraLog(e) {
     if (entraPass.value == '') {
         /* validacio(e.target[1].value, errorPass, 'El camp és obligat'); */
         validacio2(posaPass, llistaId.pass, llistaErrors.campOblig);
+    } else if(!validaContra(entraPass.value)) {
+        validacio2(posaPass, llistaId.pass, llistaErrors.valitPass);
 
     } else {
         entraPass = entraPass.value;
