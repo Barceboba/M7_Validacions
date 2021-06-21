@@ -5,6 +5,20 @@ const form = document.getElementById("myFormId");
 const posaMail = document.getElementById('entraMail');
 const posaPass = document.getElementById('entraPass');
 
+//Abstracció de entrades registre
+const ficaNom = document.getElementById('entraNom');
+const ficaMail = document.getElementById('introMail');
+const ficaPass = document.getElementById('inputPassword');
+const ficaPass2 = document.getElementById('inputPassword2');
+const ficaProv = document.getElementById('inputProvince');
+
+//Variable acumulació errors a zero
+let aplegaErrors = 0;
+
+//declaracio variables log
+/* let entraMail = document.getElementById('entraMail');
+let entraPass = document.getElementById('entraPass'); */
+
 
 
 //camps
@@ -18,92 +32,136 @@ const llistaErrors = {
 
 const llistaId = {
     mail: 'errorMail',
+    mail2: 'errorIntroMail',
     pass: 'errorPass',
+    pass2: 'errorPassword',
+    pass3: 'errorPassword2',
     nom: 'errorNom',
     provincia: 'errorProvince'
 }
 
 
-//Variable acumulació errors a zero
-//let aplegaErrors = 0;
+
 
 function validacio(target, errorText, text) {
-    target.className.add('is-invalid');
+    target.classList.add('is-invalid');
     document.getElementById(errorText).textContent = text;
     aplegaErrors++;
 };
 
 function validacio2(target, errorText, text) {
-    target.className.add('is-invalid');
+    target.classList.add('is-invalid');
     document.getElementById(errorText).textContent = text;
     aplegaErrors++;
 }
 
 //Funcio validar accés
-/* function validacio(e) {
+function entraLog(e) {
 
-    e.preventDefault(); */
+    e.preventDefault();
+    
+
+    //Condicionals errors
+
+    if (entraMail.value == '') {
+        /* validacio(e.target[1].value, errorMail, 'El camp és obligat'); */
+        validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
+
+    } else {
+        entraMail = entraMail.value;
+    }
+
+    if (entraPass.value == '') {
+        /* validacio(e.target[1].value, errorPass, 'El camp és obligat'); */
+        validacio2(posaPass, llistaId.pass, llistaErrors.campOblig);
+
+    } else {
+        entraPass = entraPass.value;
+    }
 
 
 
+    /*  if (entraMail.value == "") {
+         entraMail.classList.add('is-invalid');
+         document.getElementById('errorMail').textContent = 'El camp és obligat';
+         aplegaErrors++;
+     } else if (!validaEmail(entraMail.value)) {
+         entraMail.classList.add('is-invalid');
+         document.getElementById('errorMail').textContent = 'El correu introduït no té el format adequat';
+         aplegaErrors++;
+     }
+    
+     if (entraPass.value == "") {
+         entraPass.classList.add('is-invalid');
+         document.getElementById('errorPass').textContent = 'El camp és obligat';
+         aplegaErrors++;
+     } else if (!validaContra(entraPass.value)) {
+         entraPass.classList.add('is-invalid');
+         document.getElementById('errorPass').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
+         aplegaErrors++;
+     }*/
 
-//declaracio variables log
-let entraMail = document.getElementById('entraMail');
-let entraPass = document.getElementById('entraPass');
+    if (aplegaErrors > 0) {
+        return false;
+    } else {
+        //alert('Validat');
+        return true;
 
-//Condicionals errors
-
-if (entraMail.value == '') {
-    //validacio(e.target[1].value, errorMail, 'El camp és obligat');
-    validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
-
-} else {
-    entraMail = entraMail.value;
+    }
 }
-
-/*  if (entraMail.value == "") {
-     entraMail.classList.add('is-invalid');
-     document.getElementById('errorMail').textContent = 'El camp és obligat';
-     aplegaErrors++;
- } else if (!validaEmail(entraMail.value)) {
-     entraMail.classList.add('is-invalid');
-     document.getElementById('errorMail').textContent = 'El correu introduït no té el format adequat';
-     aplegaErrors++;
- }
-
- if (entraPass.value == "") {
-     entraPass.classList.add('is-invalid');
-     document.getElementById('errorPass').textContent = 'El camp és obligat';
-     aplegaErrors++;
- } else if (!validaContra(entraPass.value)) {
-     entraPass.classList.add('is-invalid');
-     document.getElementById('errorPass').textContent = "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número";
-     aplegaErrors++;
- }
-
- if (aplegaErrors > 0) {
-     return false;
- } else {
-     //alert('Validat');
-     return true;
-
- } */
-//}
 
 /* const forms = document.getElementById("myFormReg");
 const inputs = document.querySelectorAll('#myFormReg input option'); */
 
-//Abstracció de entrades registre
-const ficaNom = document.getElementById('entraNom');
-const ficaMail = document.getElementById('introMail');
-const ficaPass = document.getElementById('inputPassword');
-const ficaPass2 = document.getElementById('inputPassword2');
-const ficaProv = document.getElementById('inputProvince');
+
+
+
 //Funcio registre usuari
-function entradaRegistre(e) {
-    e.preventDefault();
+function registre() {
+    //e.preventDefault();
 
 
+    if (entraNom.value == '') {
+        //validacio(e.target[1].value, errorMail, 'El camp és obligat');
+        validacio2(ficaNom, llistaId.nom, llistaErrors.campOblig);
+
+    } else {
+        entraNom = entraNom.value;
+    }
+
+    if (introMail.value == '') {
+        /* validacio(e.target[1].value, errorMail, 'El camp és obligat'); */
+        validacio2(ficaMail, llistaId.mail2, llistaErrors.campOblig);
+
+    } else {
+        introMail = introMail.value;
+    }
+
+    if (inputPassword.value == '') {
+        validacio2(ficaPass, llistaId.pass2, llistaErrors.campOblig);
+    } else {
+        entraPass = entraPass.value;
+    }
+    if (inputPassword2.value == '') {
+        validacio2(ficaPass2, llistaId.pass3, llistaErrors.campOblig);
+    } else {
+        entraPass = entraPass.value;
+    }
+
+    if (inputProvince.value == '') {
+        validacio2(ficaProv, llistaId.provincia, llistaErrors.campOblig);
+
+    } else {
+        inputProvince = inputProvince.value;
+    }
+
+    if (aplegaErrors > 0) {
+        return false;
+    } else {
+        //alert('Validat');
+        return true;
+
+    }
     //declaració variables regitres
 
 
@@ -168,16 +226,17 @@ function entradaRegistre(e) {
 
     /* if (aplegaErrors > 0) {
         return false;
-    } else { 
-        //alert('Registrat');
-    }*/
+    } else { */
+    //alert('Registrat');
+    //}
     //cridem al modal de dades finals
-    modal();
-    $('#campsValits').modal();
-    return true;
-
-
 }
+/* modal();
+$('#campsValits').modal();
+return true; */
+
+
+
 
 
 
