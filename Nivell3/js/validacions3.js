@@ -1,5 +1,7 @@
 //Inputs html
-const form = document.getElementById("myReg");
+//const form = document.getElementById("logFormId");
+//const forms = document.getElementById("logRegId");
+
 
 //Abstracció de entrades login
 const posaMail = document.getElementById('entraMail');
@@ -14,11 +16,6 @@ const ficaProv = document.getElementById('inputProvince');
 
 //Variable acumulació errors a zero
 let aplegaErrors = 0;
-
-//declaracio variables log
-/* let entraMail = document.getElementById('entraMail');
-let entraPass = document.getElementById('entraPass'); */
-
 
 
 //camps
@@ -43,11 +40,11 @@ const llistaId = {
 
 
 
-function validacio(target, errorText, text) {
+/* function validacio(target, errorText, text) {
     target.classList.add('is-invalid');
     document.getElementById(errorText).textContent = text;
     aplegaErrors++;
-};
+}; */
 
 function validacio2(target, errorText, text) {
     target.classList.add('is-invalid');
@@ -101,7 +98,7 @@ function registre(e) {
 
 
     if (entraNom.value == '') {
-        //validacio(e.target[1].value, errorMail, 'El camp és obligat');
+        
         validacio2(ficaNom, llistaId.nom, llistaErrors.campOblig);
 
     } else {
@@ -109,7 +106,7 @@ function registre(e) {
     }
 
     if (introMail.value == '') {
-        /* validacio(e.target[1].value, errorMail, 'El camp és obligat'); */
+
         validacio2(ficaMail, llistaId.mail2, llistaErrors.campOblig);
     } else if (!validaEmail(introMail.value)) {
         validacio2(ficaMail, llistaId.mail2, llistaErrors.formatAde);
@@ -146,15 +143,38 @@ function registre(e) {
         return false;
     } else {
         //alert('Validat');
+        /* $('.modal.in').modal('hide');
+        dadesModal();
+        $('#campsValits').modal(); */
+
+        $("#close1_open2").click(function() {
+            $("#registre").modal('hide');
+            document.getElementById('valiNom').innerHTML = entraNom;
+            document.getElementById('valiMail').innerHTML = introMail;
+            document.getElementById('valiContra').innerHTML = inputPassword;
+            document.getElementById('valiProvi').innerHTML = inputProvince;
+            
+            $("#campsValits").modal('show');
+            
+        });
+        
+
+            
+        
+        
         return true;
 
+
     }
-    //cridem al modal de dades finals
+    
 }
 
-/* modal();
-$('#campsValits').modal();
-return true; */
+
+/* function dadesModal() {
+    document.getElementById("modal").click();
+    form.reset();
+  } */
+
 
 
 
@@ -182,10 +202,10 @@ function validaContra(password) {
 
 
 //Modal retor dades registre
-function modal() {
+/* function dadesModal() {
 
-    indocument.getElementById('valiMail').innerHTML = entraNom;
-    indocument.getElementById('valiMail').innerHTML = introMail;
-    indocument.getElementById('valiMail').innerHTML = inputPassword;
-    indocument.getElementById('valiMail').innerHTML = inputProvince;
-}
+    document.getElementById('valiNom').innerHTML = entraNom;
+    document.getElementById('valiMail').innerHTML = introMail;
+    document.getElementById('valiContra').innerHTML = inputPassword;
+    document.getElementById('valiProvi').innerHTML = inputProvince;
+} */

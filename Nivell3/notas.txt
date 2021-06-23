@@ -32,5 +32,17 @@ Modal Camps correctes id campsValits
 3 valiContra
 4 valiProvi 
 
+Introduccioón de datos.
+Validadar acceso.
+Función entraLog
 
 
+Registro
+Función 
+
+
+ campOblig: 'El camp és obligat',
+    formatAde: 'El correu introduït no té el format adequat',
+    valitPass: "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número",
+    iguPass: 'Ambdues contrasenyes no coincideixen',
+    triaProv: 'Triar província'

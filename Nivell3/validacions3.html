@@ -25,7 +25,7 @@
 </nav>
 
 <!-- Modal acces-->
-<form action="#" id="myFormId" onsubmit="return entraLog(event)" name="myFormId">
+<form action="#" id="myFormId" onsubmit="return entraLog(event)" name="logFormId">
     <div class="modal" id="acces" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -67,7 +67,7 @@
 </form>
 
 <!-- Modal registre-->
-<form action="#" id="myFormReg" onsubmit="return registre(event)" name="myReg">
+<form action="#" id="'myFormReg'" onsubmit="return registre(event)" name="logRegId">
 
     <div class="modal" id="registre" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -119,7 +119,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="hide">Tancar</button>
-                    <button type="submit" onsubmit="return dadesModal()" class="btn btn-primary">Registre</button>
+                    <button id="close1_open2" type="submit" onsubmit="return dadesModal()" class="btn btn-primary">Registre</button>
                 </div>
             </div>
         </div>
