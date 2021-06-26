@@ -1,6 +1,6 @@
 //Inputs html
-//const form = document.getElementById("logFormId");
-//const forms = document.getElementById("logRegId");
+/* const form = document.getElementById('myFormId');
+const forms = document.getElementById('logRegId'); */
 
 
 //Abstracció de entrades login
@@ -13,6 +13,8 @@ const ficaMail = document.getElementById('introMail');
 const ficaPass = document.getElementById('inputPassword');
 const ficaPass2 = document.getElementById('inputPassword2');
 const ficaProv = document.getElementById('inputProvince');
+var arrayComprobacio = ['asdasdasd@dddd.com'];
+
 
 //Variable acumulació errors a zero
 let aplegaErrors = 0;
@@ -24,7 +26,11 @@ const llistaErrors = {
     formatAde: 'El correu introduït no té el format adequat',
     valitPass: "Contrasenya a d'incloure mínim de 8 caràcters, mínim una majúscula i mínim un número",
     iguPass: 'Ambdues contrasenyes no coincideixen',
-    triaProv: 'Triar província'
+    triaProv: 'Triar província',
+    emailExistent: 'Aquesta adreça electrònica ja és al registre. Anar a accés.',
+    emailNoExistent: 'Aquesta adreça electrònica no és d\'alta. Procedir a registre.'
+
+
 }
 
 const llistaId = {
@@ -63,7 +69,12 @@ function entraLog(e) {
         validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
     } else if (!validaEmail(entraMail.value)) {
         validacio2(posaMail, llistaId.mail, llistaErrors.formatAde);
+    } else if (!arrayComprobacio.includes(entraMail.value)) {
+        validacio2(posaMail, llistaId.mail, llistaErrors.emailNoExistent);
     } else {
+
+        arrayComprobacio.push(entraMail.value);
+        
         entraMail = entraMail.value;
     }
 
@@ -98,7 +109,7 @@ function registre(e) {
 
 
     if (entraNom.value == '') {
-        
+
         validacio2(ficaNom, llistaId.nom, llistaErrors.campOblig);
 
     } else {
@@ -110,8 +121,15 @@ function registre(e) {
         validacio2(ficaMail, llistaId.mail2, llistaErrors.campOblig);
     } else if (!validaEmail(introMail.value)) {
         validacio2(ficaMail, llistaId.mail2, llistaErrors.formatAde);
-    } else {
+    } else if (arrayComprobacio.includes(introMail.value)) {
+        validacio2(ficaMail, llistaId.mail2, llistaErrors.emailExistent);
+    }
+    else {
+        
         introMail = introMail.value;
+        arrayComprobacio.push(introMail);
+        console.log(arrayComprobacio);
+
     }
 
     if (inputPassword.value == '') {
@@ -147,26 +165,20 @@ function registre(e) {
         dadesModal();
         $('#campsValits').modal(); */
 
-        $("#close1_open2").click(function() {
+        $("#close1_open2").click(function () {
             $("#registre").modal('hide');
+
             document.getElementById('valiNom').innerHTML = entraNom;
             document.getElementById('valiMail').innerHTML = introMail;
             document.getElementById('valiContra').innerHTML = inputPassword;
             document.getElementById('valiProvi').innerHTML = inputProvince;
-            
+
             $("#campsValits").modal('show');
-            
+
         });
-        
-
-            
-        
-        
         return true;
-
-
     }
-    
+
 }
 
 
@@ -175,14 +187,14 @@ function registre(e) {
     form.reset();
   } */
 
-
-
-
-
-
-
 //Efecte blur
 /* form.addEventListener('blur', (event) => {
+    console.log(event);
+    if (event.target.value != '') event.target.classList.remove('is-invalid');
+    //registerValidate();
+}, true);
+
+forms.addEventListener('blur', (event) => {
     console.log(event);
     if (event.target.value != '') event.target.classList.remove('is-invalid');
     //registerValidate();
@@ -199,13 +211,3 @@ function validaContra(password) {
     let regex = /(?=.*[A-Z])(?=.*[0-9]).{8,}/;
     return regex.test(password) ? true : false;
 }
-
-
-//Modal retor dades registre
-/* function dadesModal() {
-
-    document.getElementById('valiNom').innerHTML = entraNom;
-    document.getElementById('valiMail').innerHTML = introMail;
-    document.getElementById('valiContra').innerHTML = inputPassword;
-    document.getElementById('valiProvi').innerHTML = inputProvince;
-} */
