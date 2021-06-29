@@ -13,7 +13,7 @@ const ficaMail = document.getElementById('introMail');
 const ficaPass = document.getElementById('inputPassword');
 const ficaPass2 = document.getElementById('inputPassword2');
 const ficaProv = document.getElementById('inputProvince');
-var arrayComprobacio = ['asdasdasd@dddd.com'];
+var userLog = [];
 
 
 //Variable acumulació errors a zero
@@ -69,12 +69,11 @@ function entraLog(e) {
         validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
     } else if (!validaEmail(entraMail.value)) {
         validacio2(posaMail, llistaId.mail, llistaErrors.formatAde);
-    } else if (!arrayComprobacio.includes(entraMail.value)) {
-        validacio2(posaMail, llistaId.mail, llistaErrors.emailNoExistent);
-    } else {
+    } /* else if (!userLog.includes(entraMail.value && entraPass)) {
+        validacio2(posaMail, llistaId.mail, llistaErrors.emailNoExistent); */
+    else {
 
-        arrayComprobacio.push(entraMail.value);
-        
+
         entraMail = entraMail.value;
     }
 
@@ -83,19 +82,29 @@ function entraLog(e) {
         validacio2(posaPass, llistaId.pass, llistaErrors.campOblig);
     } else if (!validaContra(entraPass.value)) {
         validacio2(posaPass, llistaId.pass, llistaErrors.valitPass);
+    } else if (userLog.includes(!entraMail)) {
+        validacio2(posaMail, llistaId.mail, llistaErrors.emailNoExistent);
 
     } else {
         entraPass = entraPass.value;
     }
 
     if (aplegaErrors > 0) {
+        /*    entraMail = '';
+           entraPass = '';
+           aplegaErrors = 0; */
+
         return false;
     } else {
         //alert('Validat');
+
         return true;
 
     }
+
+
 }
+
 
 /* const forms = document.getElementById("myFormReg");
 const inputs = document.querySelectorAll('#myFormReg input option'); */
@@ -121,15 +130,12 @@ function registre(e) {
         validacio2(ficaMail, llistaId.mail2, llistaErrors.campOblig);
     } else if (!validaEmail(introMail.value)) {
         validacio2(ficaMail, llistaId.mail2, llistaErrors.formatAde);
-    } else if (arrayComprobacio.includes(introMail.value)) {
+    } else if (userLog.includes(introMail.value)) {
         validacio2(ficaMail, llistaId.mail2, llistaErrors.emailExistent);
     }
     else {
-        
-        introMail = introMail.value;
-        arrayComprobacio.push(introMail);
-        console.log(arrayComprobacio);
 
+        introMail = introMail.value;
     }
 
     if (inputPassword.value == '') {
@@ -158,6 +164,8 @@ function registre(e) {
     }
 
     if (aplegaErrors > 0) {
+
+
         return false;
     } else {
         //alert('Validat');
@@ -176,12 +184,24 @@ function registre(e) {
             $("#campsValits").modal('show');
 
         });
+        userLog.push([introMail, inputPassword]);
+        console.log(userLog);
+        aplegaErrors = 0;
+
         return true;
+
     }
 
+
 }
-
-
+/* entraMail = '';
+entraPass = '';
+entraNom = '';
+introMail = '';
+inputPassword = '';
+inputPassword2 = '';
+inputProvince = ''; */
+//aplegaErrors = 0;
 /* function dadesModal() {
     document.getElementById("modal").click();
     form.reset();
@@ -211,3 +231,5 @@ function validaContra(password) {
     let regex = /(?=.*[A-Z])(?=.*[0-9]).{8,}/;
     return regex.test(password) ? true : false;
 }
+
+
