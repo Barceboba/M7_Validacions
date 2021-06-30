@@ -1,8 +1,3 @@
-//Inputs html
-/* const form = document.getElementById('myFormId');
-const forms = document.getElementById('logRegId'); */
-
-
 //Abstracció de entrades login
 const posaMail = document.getElementById('entraMail');
 const posaPass = document.getElementById('entraPass');
@@ -13,12 +8,10 @@ const ficaMail = document.getElementById('introMail');
 const ficaPass = document.getElementById('inputPassword');
 const ficaPass2 = document.getElementById('inputPassword2');
 const ficaProv = document.getElementById('inputProvince');
-var userLog = [];
-
+let emailPass = new Map ();
 
 //Variable acumulació errors a zero
 let aplegaErrors = 0;
-
 
 //camps
 const llistaErrors = {
@@ -29,8 +22,6 @@ const llistaErrors = {
     triaProv: 'Triar província',
     emailExistent: 'Aquesta adreça electrònica ja és al registre. Anar a accés.',
     emailNoExistent: 'Aquesta adreça electrònica no és d\'alta. Procedir a registre.'
-
-
 }
 
 const llistaId = {
@@ -43,14 +34,6 @@ const llistaId = {
     provincia: 'errorProvince'
 }
 
-
-
-
-/* function validacio(target, errorText, text) {
-    target.classList.add('is-invalid');
-    document.getElementById(errorText).textContent = text;
-    aplegaErrors++;
-}; */
 
 function validacio2(target, errorText, text) {
     target.classList.add('is-invalid');
@@ -65,38 +48,25 @@ function entraLog(e) {
 
     //Condicionals errors
     if (entraMail.value == '') {
-        /* validacio(e.target[1].value, errorMail, 'El camp és obligat'); */
-        validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
+                validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
     } else if (!validaEmail(entraMail.value)) {
         validacio2(posaMail, llistaId.mail, llistaErrors.formatAde);
-    } /* else if (!userLog.includes(entraMail.value && entraPass)) {
-        validacio2(posaMail, llistaId.mail, llistaErrors.emailNoExistent); */
-    else {
-
-
-        entraMail = entraMail.value;
-    }
+    } 
+    
 
     if (entraPass.value == '') {
-        /* validacio(e.target[1].value, errorPass, 'El camp és obligat'); */
-        validacio2(posaPass, llistaId.pass, llistaErrors.campOblig);
+                validacio2(posaPass, llistaId.pass, llistaErrors.campOblig);
     } else if (!validaContra(entraPass.value)) {
         validacio2(posaPass, llistaId.pass, llistaErrors.valitPass);
-    } else if (userLog.includes(!entraMail)) {
+    }  else if (!emailPass.get(entraMail.value, entraPass.value)) {
         validacio2(posaMail, llistaId.mail, llistaErrors.emailNoExistent);
 
-    } else {
-        entraPass = entraPass.value;
-    }
+    } 
 
     if (aplegaErrors > 0) {
-        /*    entraMail = '';
-           entraPass = '';
-           aplegaErrors = 0; */
-
-        return false;
+               return false;
     } else {
-        //alert('Validat');
+        
 
         return true;
 
@@ -104,13 +74,6 @@ function entraLog(e) {
 
 
 }
-
-
-/* const forms = document.getElementById("myFormReg");
-const inputs = document.querySelectorAll('#myFormReg input option'); */
-
-
-
 
 //Funcio registre usuari
 function registre(e) {
@@ -121,104 +84,66 @@ function registre(e) {
 
         validacio2(ficaNom, llistaId.nom, llistaErrors.campOblig);
 
-    } else {
-        entraNom = entraNom.value;
-    }
+    } /* else {
+        ficaNom = entraNom.value;
+    } */
 
     if (introMail.value == '') {
 
         validacio2(ficaMail, llistaId.mail2, llistaErrors.campOblig);
     } else if (!validaEmail(introMail.value)) {
         validacio2(ficaMail, llistaId.mail2, llistaErrors.formatAde);
-    } else if (userLog.includes(introMail.value)) {
-        validacio2(ficaMail, llistaId.mail2, llistaErrors.emailExistent);
-    }
-    else {
-
-        introMail = introMail.value;
-    }
-
+    } 
+    
     if (inputPassword.value == '') {
         validacio2(ficaPass, llistaId.pass2, llistaErrors.campOblig);
     } else if (!validaContra(inputPassword.value)) {
         validacio2(ficaPass, llistaId.pass2, llistaErrors.valitPass);
-    } else {
-        inputPassword = inputPassword.value;
-    }
+    } else if (emailPass.get(introMail.value, inputPassword.value)) {
+        validacio2(ficaMail, llistaId.mail2, llistaErrors.emailExistent);
+    } 
 
     if (inputPassword2.value == '') {
         validacio2(ficaPass2, llistaId.pass3, llistaErrors.campOblig);
     } else if (!validaContra(inputPassword2.value)) {
         validacio2(ficaPass2, llistaId.pass3, llistaErrors.valitPass);
-    } else if (inputPassword2.value !== inputPassword) {
+    } else if (inputPassword2.value !== inputPassword.value) {
         validacio2(ficaPass2, llistaId.pass3, llistaErrors.iguPass);
-    } else {
-        inputPassword2 = inputPassword2.value;
-    }
+    } 
 
     if (inputProvince.value == '') {
         validacio2(ficaProv, llistaId.provincia, llistaErrors.campOblig);
 
-    } else {
-        inputProvince = inputProvince.value;
-    }
+    } 
 
     if (aplegaErrors > 0) {
 
 
         return false;
     } else {
-        //alert('Validat');
-        /* $('.modal.in').modal('hide');
-        dadesModal();
-        $('#campsValits').modal(); */
-
+         
         $("#close1_open2").click(function () {
             $("#registre").modal('hide');
 
-            document.getElementById('valiNom').innerHTML = entraNom;
-            document.getElementById('valiMail').innerHTML = introMail;
-            document.getElementById('valiContra').innerHTML = inputPassword;
-            document.getElementById('valiProvi').innerHTML = inputProvince;
+            document.getElementById('valiNom').innerHTML = ficaNom.value;
+            document.getElementById('valiMail').innerHTML = ficaMail.value;
+            document.getElementById('valiContra').innerHTML = ficaPass.value;
+            document.getElementById('valiProvi').innerHTML = ficaProv.value;
 
             $("#campsValits").modal('show');
 
         });
-        userLog.push([introMail, inputPassword]);
-        console.log(userLog);
-        aplegaErrors = 0;
-
+        emailPass.set(ficaNom.value, ficaNom.value)
+                .set(ficaMail.value, ficaMail.value)
+                .set(ficaPass.value, ficaPass.value);
+                console.log(emailPass);
+        
         return true;
 
     }
 
 
 }
-/* entraMail = '';
-entraPass = '';
-entraNom = '';
-introMail = '';
-inputPassword = '';
-inputPassword2 = '';
-inputProvince = ''; */
-//aplegaErrors = 0;
-/* function dadesModal() {
-    document.getElementById("modal").click();
-    form.reset();
-  } */
-
-//Efecte blur
-/* form.addEventListener('blur', (event) => {
-    console.log(event);
-    if (event.target.value != '') event.target.classList.remove('is-invalid');
-    //registerValidate();
-}, true);
-
-forms.addEventListener('blur', (event) => {
-    console.log(event);
-    if (event.target.value != '') event.target.classList.remove('is-invalid');
-    //registerValidate();
-}, true); */
 
 //Validació de Email
 function validaEmail(email) {
