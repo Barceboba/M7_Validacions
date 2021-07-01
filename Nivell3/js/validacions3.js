@@ -8,10 +8,10 @@ const ficaMail = document.getElementById('introMail');
 const ficaPass = document.getElementById('inputPassword');
 const ficaPass2 = document.getElementById('inputPassword2');
 const ficaProv = document.getElementById('inputProvince');
-let emailPass = new Map ();
+let emailPass = new Map();
 
-//Variable acumulació errors a zero
-let aplegaErrors = 0;
+
+
 
 //camps
 const llistaErrors = {
@@ -45,28 +45,31 @@ function validacio2(target, errorText, text) {
 function entraLog(e) {
 
     e.preventDefault();
+    //Variable acumulació errors a zero
+    let aplegaErrors = 0;
 
     //Condicionals errors
     if (entraMail.value == '') {
-                validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
+        validacio2(posaMail, llistaId.mail, llistaErrors.campOblig);
     } else if (!validaEmail(entraMail.value)) {
         validacio2(posaMail, llistaId.mail, llistaErrors.formatAde);
-    } 
-    
+    }
+
 
     if (entraPass.value == '') {
-                validacio2(posaPass, llistaId.pass, llistaErrors.campOblig);
+        validacio2(posaPass, llistaId.pass, llistaErrors.campOblig);
     } else if (!validaContra(entraPass.value)) {
         validacio2(posaPass, llistaId.pass, llistaErrors.valitPass);
-    }  else if (!emailPass.get(entraMail.value, entraPass.value)) {
+    } else if (!emailPass.get(entraMail.value, entraPass.value)) {
         validacio2(posaMail, llistaId.mail, llistaErrors.emailNoExistent);
 
-    } 
+    }
 
     if (aplegaErrors > 0) {
-               return false;
+
+        return false;
     } else {
-        
+
 
         return true;
 
@@ -78,6 +81,8 @@ function entraLog(e) {
 //Funcio registre usuari
 function registre(e) {
     e.preventDefault();
+    //Variable acumulació errors a zero
+    aplegaErrors = 0;
 
 
     if (entraNom.value == '') {
@@ -93,15 +98,15 @@ function registre(e) {
         validacio2(ficaMail, llistaId.mail2, llistaErrors.campOblig);
     } else if (!validaEmail(introMail.value)) {
         validacio2(ficaMail, llistaId.mail2, llistaErrors.formatAde);
-    } 
-    
+    }
+
     if (inputPassword.value == '') {
         validacio2(ficaPass, llistaId.pass2, llistaErrors.campOblig);
     } else if (!validaContra(inputPassword.value)) {
         validacio2(ficaPass, llistaId.pass2, llistaErrors.valitPass);
     } else if (emailPass.get(introMail.value, inputPassword.value)) {
         validacio2(ficaMail, llistaId.mail2, llistaErrors.emailExistent);
-    } 
+    }
 
     if (inputPassword2.value == '') {
         validacio2(ficaPass2, llistaId.pass3, llistaErrors.campOblig);
@@ -109,19 +114,19 @@ function registre(e) {
         validacio2(ficaPass2, llistaId.pass3, llistaErrors.valitPass);
     } else if (inputPassword2.value !== inputPassword.value) {
         validacio2(ficaPass2, llistaId.pass3, llistaErrors.iguPass);
-    } 
+    }
 
     if (inputProvince.value == '') {
         validacio2(ficaProv, llistaId.provincia, llistaErrors.campOblig);
 
-    } 
+    }
 
     if (aplegaErrors > 0) {
 
 
         return false;
     } else {
-         
+
         $("#close1_open2").click(function () {
             $("#registre").modal('hide');
 
@@ -134,10 +139,10 @@ function registre(e) {
 
         });
         emailPass.set(ficaNom.value, ficaNom.value)
-                .set(ficaMail.value, ficaMail.value)
-                .set(ficaPass.value, ficaPass.value);
-                console.log(emailPass);
-        
+            .set(ficaMail.value, ficaMail.value)
+            .set(ficaPass.value, ficaPass.value);
+        console.log(emailPass);
+
         return true;
 
     }
